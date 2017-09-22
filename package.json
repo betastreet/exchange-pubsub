@@ -1,0 +1,29 @@
+{
+  "name": "exchange-pubsub",
+  "version": "1.0.0",
+  "description": "A wrapper to simplify basic pubsub usage",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "jest",
+    "jest": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/betastreet/exchange-pubsub.git"
+  },
+  "keywords": [
+    "pubsub"
+  ],
+  "author": "RingPartner",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/betastreet/exchange-pubsub/issues"
+  },
+  "homepage": "https://github.com/betastreet/exchange-pubsub#readme",
+  "dependencies": {
+    "@google-cloud/pubsub": "^0.14.1"
+  },
+  "devDependencies": {
+    "jest": "^21.0.1"
+  }
+}

@@ -1,0 +1,5 @@
+/.idea
+node_modules
+npm-*.log
+coverage
+gcloud-auth.json
