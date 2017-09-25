@@ -26,7 +26,7 @@ A helper module to simplify @google-cloud/pubsub
 const pubSub = require('exchange-pubsub');
 // Optional:
 pubSub.setOptions({
-  topicBase: 'myTopicBase',
+  topicBase: 'myTopicBase.',
   log: console,
   defaultSubscribeOptions: {
     raw: false,
