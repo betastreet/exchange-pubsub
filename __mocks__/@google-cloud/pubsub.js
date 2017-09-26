@@ -1,4 +1,7 @@
-module.exports = (options) => pubsub;
+module.exports = (options) => {
+  pubsub.options = options;
+  return pubsub;
+};
 
 const pubsub = {
   topic: () => topic,
@@ -7,7 +10,7 @@ const pubsub = {
 const topic = {
   exists: () => Promise.resolve([true]),
   create: () => Promise.resolve(),
-  createSubscription: (topic, cb) => cb(null, subscription),
+  createSubscription: (name, options, cb) => cb(null, subscription),
   publisher: () => publisher,
 };
 
