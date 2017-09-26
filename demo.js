@@ -1,7 +1,6 @@
 const pubSub = require('exchange-pubsub');
 // Optional:
 pubSub.setOptions({
-  topicBase: 'myTopicBase',
   log: console,
   defaultSubscribeOptions: {
     raw: false,
@@ -9,7 +8,7 @@ pubSub.setOptions({
   },
 });
 
-pubSub.subscribe('myTopic', (msgData => {
+pubSub.subscribe('myTopic', 'subscription name', (msgData => {
   // default is only the message.data property from pubsub
   console.log(msgData); // should be 'my message' in this example
 
@@ -21,3 +20,15 @@ pubSub.subscribe('myTopic', (msgData => {
 pubSub.publish('myTopic', 'my message')
   .then(() => {/* do something */ })
   .catch(e => {/* error */ });
+
+// specify subscription name and options:
+pubSub.subscribe('myTopic', 'subscription name', {autoAck: false, raw: true}, (msg => {
+  console.log(msg.data);
+  msg.ack();
+}));
+
+// random subscription name
+pubSub.subscribe('myTopic', true, (msgData => {
+  console.log(msgData);
+  return Promise.reject();  // force a nack
+}));
