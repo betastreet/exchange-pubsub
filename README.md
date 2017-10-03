@@ -10,7 +10,6 @@ A helper module to simplify @google-cloud/pubsub
 `npm i --save exchange-pubsub`
 
 ### Options
- * topicBase = leading name of queue topic (default '')
  * log = logger to use (defaults to console)
  * defaultSubscribeOptions = (same as optional per-subscription options)
    * raw - provide full message to listener. Default = false (just the data)
@@ -26,7 +25,6 @@ A helper module to simplify @google-cloud/pubsub
 const pubSub = require('exchange-pubsub');
 // Optional:
 pubSub.setOptions({
-  topicBase: 'myTopicBase.',
   log: console,
   defaultSubscribeOptions: {
     raw: false,
@@ -34,6 +32,7 @@ pubSub.setOptions({
   },
 });
 
+// simple usage:
 pubSub.subscribe('myTopic', (msgData => {
   // default is only the message.data property from pubsub
   console.log(msgData); // should be 'my message' in this example
@@ -46,5 +45,25 @@ pubSub.subscribe('myTopic', (msgData => {
 pubSub.publish('myTopic', 'my message')
   .then(() => {/* do something */ })
   .catch(e => {/* error */ });
+```
+
+The default usage uses the topic as the subscription name which means
+it will be processed by a single subscriber (if multiple subscribers use the same name).
+
+You can also specify the name manually, or have a random name generated:
+
+```javascript
+// specify subscription name and options:
+pubSub.subscribe('myTopic', 'subscription name', {autoAck: false, raw: true}, (msg => {
+  console.log(msg.data);
+  msg.ack();
+}));
+
+// random subscription name
+pubSub.subscribe('myTopic', true, (msgData => {
+  console.log(msgData);
+  return Promise.reject();  // force a nack
+}));
+```
 
 Source: [demo.js](demo.js)
