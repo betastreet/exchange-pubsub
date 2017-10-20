@@ -15,6 +15,7 @@ A helper module to simplify @google-cloud/pubsub
    * raw - provide full message to listener. Default = false (just the data)
    * autoAck - automatically acknowledge messages on return from listener. Default = true
    * subNameWithTopic - automatically add topic name to subscription name. Default = true
+   * connectionInterval - automatically resubscribe every xx seconds of inactivity. 0 = off, Default = 1hr.
  * ignoreKeyFilename = don't set default pubSub keyFilename option
  * pubSub = see @google-cloud/pubsub
    * projectId will attempt to use process.env.GCLOUD_PROJECT if not set
