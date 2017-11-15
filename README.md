@@ -66,6 +66,12 @@ pubSub.subscribe('myTopic', true, (msgData => {
   console.log(msgData);
   return Promise.reject();  // force a nack
 }));
+
+// CAUTION: careful with binding...
+// DON'T DO: pubSub.subscribe('myTopic', true, myClass.function)
+// Instead, use one of the following:
+pubSub.subscribe('myTopic', 'subName', (msg) => myClass.function(msg));
+pubSub.subscribe('myTopic', 'subName', myClass.function.bind(myClass));
 ```
 
 Source: [demo.js](demo.js)
