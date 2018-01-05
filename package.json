@@ -1,6 +1,6 @@
 {
   "name": "exchange-pubsub",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "A wrapper to simplify basic pubsub usage",
   "main": "lib/index.js",
   "scripts": {
