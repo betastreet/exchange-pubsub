@@ -1,6 +1,6 @@
 {
   "name": "exchange-pubsub",
-  "version": "1.2.8",
+  "version": "1.2.9",
   "description": "A wrapper to simplify basic pubsub usage",
   "main": "lib/index.js",
   "scripts": {
@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/betastreet/exchange-pubsub#readme",
   "dependencies": {
-    "@google-cloud/pubsub": "^0.x"
+    "@google-cloud/pubsub": "^0.16.4"
   },
   "devDependencies": {
     "jest": "^21.2.1"
