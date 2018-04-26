@@ -21,7 +21,8 @@
   },
   "homepage": "https://github.com/betastreet/exchange-pubsub#readme",
   "dependencies": {
-    "@google-cloud/pubsub": "^0.18.0"
+    "@google-cloud/pubsub": "^0.18.0",
+    "grpc": "^1.7.3"
   },
   "devDependencies": {
     "jest": "^21.2.1"
