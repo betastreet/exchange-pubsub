@@ -1,24 +1,39 @@
-module.exports = (options) => {
-  pubsub.options = options;
-  return pubsub;
+const publish = jest.fn().mockReturnValue('published');
+const msg = {
+  id: 1,
+  data: Buffer.from(JSON.stringify({ msg: 'yay' })),
+  ack: jest.fn(),
+  nack: jest.fn(),
 };
-
-const pubsub = {
-  topic: () => topic,
-};
-
-const topic = {
-  exists: () => Promise.resolve([true]),
-  create: () => Promise.resolve(),
-  createSubscription: (name, options, cb) => cb(null, subscription),
-  publisher: () => publisher,
-};
-
-const publisher = {
-  publish: () => Promise.resolve(),
-};
-
 const subscription = {
-  close: () => {},
-  on: () => {},
+  on: jest.fn().mockImplementation((ev, handler) => ev === 'message' ? handler({ ...msg }) : null),
+  delete: jest.fn().mockReturnValue({}),
+};
+const mock = {
+  get: jest.fn().mockResolvedValue([{ publish }]),
+  subscription: jest.fn().mockReturnValue({
+    get: jest.fn().mockResolvedValue([subscription]),
+  }),
+};
+
+class PubSub {
+  topic(topicName) {
+    return mock;
+  }
+  get subscribe() {
+    return mock.subscription;
+  }
+  get publish() {
+    return publish;
+  }
+  get subscription() {
+    return subscription;
+  }
+  get msg() {
+    return msg;
+  }
+}
+
+module.exports = {
+  PubSub,
 };

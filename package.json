@@ -21,10 +21,13 @@
   },
   "homepage": "https://github.com/betastreet/exchange-pubsub#readme",
   "dependencies": {
-    "@google-cloud/pubsub": "^0.18.0",
-    "grpc": "^1.7.3"
+    "@google-cloud/pubsub": "^0.28.1",
+    "lodash": "^4.x.x"
   },
   "devDependencies": {
-    "jest": "^21.2.1"
+    "jest": "^24.7.1"
+  },
+  "jest": {
+    "clearMocks": true
   }
 }
