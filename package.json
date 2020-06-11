@@ -22,10 +22,10 @@
   "homepage": "https://github.com/betastreet/exchange-pubsub#readme",
   "dependencies": {
     "@google-cloud/pubsub": "^2.x",
-    "lodash": "^4.x.x"
+    "lodash": "^4.x"
   },
   "devDependencies": {
-    "jest": "^24.9.0"
+    "jest": "^26.x"
   },
   "jest": {
     "clearMocks": true
