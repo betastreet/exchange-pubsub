@@ -21,11 +21,11 @@
   },
   "homepage": "https://github.com/betastreet/exchange-pubsub#readme",
   "dependencies": {
-    "@google-cloud/pubsub": "^2.x",
-    "lodash": "^4.x"
+    "@google-cloud/pubsub": ">=1.0.0 <=2.x",
+    "lodash": ">=4.0.0"
   },
   "devDependencies": {
-    "jest": "^26.x"
+    "jest": ">=22.0.0"
   },
   "jest": {
     "clearMocks": true
