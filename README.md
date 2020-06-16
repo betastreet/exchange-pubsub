@@ -1,5 +1,5 @@
 [![Version](https://badge.fury.io/js/exchange-pubsub.svg)](http://badge.fury.io/js/exchange-pubsub)
-[![Build Status](https://travis-ci.org/betastreet/exchange-pubsub.svg?branch=master)](https://travis-ci.org/betastreet/exchange-pubsub)
+[![Build Status](https://travis-ci.org/betastreet/exchange-pubsub.svg?branch=main)](https://travis-ci.org/betastreet/exchange-pubsub)
  
 # exchange-pubsub
 
